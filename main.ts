@@ -9,8 +9,8 @@
 let odometer: number = 65000;          // current mileage
 let oilChangeKM: number = 65000;       // last oil change
 let carColor: string = "Red";          // initial color
-let carModel: string = "Toyota Corolla";
-let gasCost: number[] = [];            // store gas fill-up costs
+const carModel: string = "Toyota Corolla"; // car model never changes
+const gasCost: number[] = [];             // store gas fill-up costs
 
 // FUNCTION to display car stats
 function carStats(): string {
@@ -29,7 +29,7 @@ function wrapCar(): void {
 
 // FUNCTION to simulate driving
 function drive(): void {
-  const distance = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+  const distance = Math.floor(Math.random() * (1000 - 100 + 1)) + 100; // random 100-1000 km
   odometer += distance;
   console.log(`You drove ${distance} km. Odometer is now ${odometer} km.`);
 }
@@ -38,7 +38,7 @@ function drive(): void {
 function checkOilChange(): void {
   if (odometer - oilChangeKM >= 5000) {
     console.log("An oil change was done.");
-    oilChangeKM = odometer;
+    oilChangeKM = odometer; // update last oil change
   } else {
     console.log("Your car does not need an oil change.");
   }
@@ -65,14 +65,16 @@ function displayGasCosts(): void {
 console.log("\nInitial Car Stats:");
 console.log(carStats());
 
-wrapCar();      // change color
-drive();        // simulate driving
+wrapCar();        // change color
+drive();          // simulate driving
 checkOilChange(); // check if oil change needed
 
-// Fill up gas two times for example
+// Example: fill up gas two times
 fillUp();
 fillUp();
 displayGasCosts();
 
 console.log("\nUpdated Car Stats:");
 console.log(carStats());
+
+console.log("\nDone.");
